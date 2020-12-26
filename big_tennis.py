@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #solution=lambda *_:sorted(_)in([0,6],[1,6],[2,6],[3,6],[4,6],[5,7],[6,7])
 solution=lambda *_:(*sorted(_),)in zip(range(7),[6]*5+[7,7])
 #def solution(*_):a,b=sorted(_);return(7==b>a>4)|(a<b-1==5)
@@ -11,3 +12,15 @@ print(solution(6,7))
 print(solution(7,2))
 print(solution(7,7))
 print(solution(11,2))
+=======
+solution=lambda*_:(*sorted(_),)in zip(range(7),[6]*5+[7,7])
+def Solution(*_):a,b=sorted(_);return a<b-1==5or 4<a<b==7
+solution=lambda*k:(a:=7-max(k))<2<6>4-a*5<min(k)<7-a*2
+
+challenge = []
+for a in range(11):
+  for b in range(11):
+    challenge.append(solution(a, b) == Solution(a, b))
+print(challenge.count(False))
+
+>>>>>>> 42fdcef (2012-12-26)
