@@ -1,8 +1,5 @@
 import random as rand
-
-class testers_list(list):
-  def index(self, *_):
-    raise Exception("Don't use index!")
+import slow_list
 
 
 def Solution(l, i):
@@ -18,8 +15,9 @@ S = []
 F = []
 for X in range(50):
   L = sorted({(G:=rand.randint(0,1000000))for _ in range(100000)})
-  L=testers_list(L)
-  S.append(Solution(L,G)[1]==solution(L,G)[1])
+  K=slow_list.slowlist(L)
+  S.append(Solution(L,G)[1] == solution(K,G)[1])
   if not S[-1]: F.append((Solution(L,G),solution(L,G)))
-print(S.count(False))
+print(f'Failed tests: {S.count(False)}/50')
+print('Failed cases:')
 print(F)
