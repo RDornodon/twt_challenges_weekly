@@ -2,8 +2,23 @@ import json
 import time
 
 
+def solution(p,L,l,c=0,P=0):
+    D={}.fromkeys(range(p),0)
+    while l:
+        e,o=l.pop()
+        if (n:=D[e])!=(v:=D[o])and n and v:
+            for k in D:
+                if D[k]==v:D[k]=n
+        elif n|v:D[e]=D[o]=max(n,v)
+        else: D[e]=D[o]=(c:=c+1)
+    for _ in D:
+        if not D[_]:D[_]=(c:=c+1)
+    C=[*D.values()];Q={_:C.count(_)for _ in {*C}}
+    while Q: P+=Q.pop([*Q.keys()][0])*sum(Q.values())
+    return P
+
 # Your solution here
-def solution(people: int, list_len: int, pairs_list: list) -> int:
+def Solution(people: int, list_len: int, pairs_list: list) -> int:
     country_id: int = 0
     people_dict = dict.fromkeys(range(people))
 
