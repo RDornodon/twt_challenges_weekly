@@ -1,18 +1,27 @@
 import time
+from typing import final
+
+@final
+def sleep(self):
+  time.sleep(0.1)
 
 
 class slowlist(list):
+  @final
   def __next__(self):
-    time.sleep(0.01)
+    sleep()
     return self.__iter.__next__()
 
+  @final
   def __getitem__(self, item):
-    time.sleep(0.01)
+    sleep()
     return super().__getitem__(item)
 
-  def index(self, __value, __start=..., __stop=...):
+  @final
+  def index(*_):
     raise Exception("Do not use index!")
 
+  @final
   def __iter__(self):
     self.__iter = super().__iter__()
     return self

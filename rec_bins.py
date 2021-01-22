@@ -1,7 +1,6 @@
 import random as rand
 import slow_list
 
-
 def Solution(l, i):
   return (a:=l.index(i)),1-a&1
 
