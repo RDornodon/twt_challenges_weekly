@@ -14,7 +14,7 @@ def solution(p,L,l,c=0,P=0):
     for _ in D:
         if not D[_]:D[_]=(c:=c+1)
     C=[*D.values()];Q={_:C.count(_)for _ in {*C}}
-    while Q: P+=Q.pop([*Q.keys()][0])*sum(Q.values())
+    while Q: P+=Q.popitem()[1]*sum(Q.values())
     return P
 
 # Your solution here
@@ -51,7 +51,7 @@ def Solution(people: int, list_len: int, pairs_list: list) -> int:
 
     possible_pairs = 0
     while countries:
-        v = countries.pop([*countries.keys()][0])
+        v = countries.popitem()[1]
         possible_pairs += v * sum(countries.values())
     return possible_pairs
 
