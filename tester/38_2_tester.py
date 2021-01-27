@@ -4,7 +4,7 @@ import copy
 from tqdm import tqdm
 import json
 
-with open("38_2_tests_2.json") as f:
+with open("38_2_tests_2k.json") as f:
   data = json.load(f)
 
 failed_cases=[]
@@ -23,7 +23,6 @@ Time: {end-start}
 {"Failed_cases:"if failed_cases else ""}""")
 
 for t in failed_cases[:min(3,len(failed_cases))]:
-    print(f"""A: {t[0]}
-s: {t[1]}
-your answer: {t[3]}
-Actual answer(Atleast according to my tester. It may just be that your's is correct afterall but who knows?): {t[2]}""")
+    print(f"""n: {t[0]}
+your answer: {t[2]}
+Actual answer(Atleast according to my tester. It may just be that your's is correct afterall but who knows?): {t[1]}""")

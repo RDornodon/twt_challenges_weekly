@@ -1,5 +1,9 @@
-Solution=lambda n,a=0,b=1:([a:=b+(b:=a)for _ in range(n)],b)[1]
 F={1:0,2:1};solution=lambda n:([F.update({_:F[_-1]+F[_-2]})for _ in range(max(F.keys())+1,n+1)],F[n])[1]
+solution=lambda n,a=0,b=1:([a:=b+(b:=a)for _ in range(n)],b)[1]
+def solution(n,a=0,b=1):
+ while n:=n-1:a,b=b+a,a
+ return a
+
 if __name__ == '__main__':
   import random
   import time
