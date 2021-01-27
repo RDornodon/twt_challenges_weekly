@@ -6,9 +6,9 @@ if __name__ == '__main__':
   import json
   t = time.time()
   res = []
-  for _ in range(1000):
-    res.append([v:=random.randint(1, 10000), solution(v)])
+  for _ in range(2000):
+    res.append([v:=_+1, solution(v)])
   t = time.time()-t
   print(f'Time elapsed: {t:.2f}')
-  with open('tester/38_2_tests_2.json', 'w') as file_out:
+  with open('tester/38_2_tests_2k.json', 'w') as file_out:
     json.dump(res, file_out)
