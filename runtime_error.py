@@ -14,10 +14,13 @@ def solution(s, v):
 
 
 solution=lambda s,v:(Z:=[*zip(range(len(s)),*zip(*{*zip(s,v)}))])and(Q:=[(S-s)/(v-V)if(v-V)else-1for x,s,v in Z for X,S,V in Z if x>X])and max(Q.count(q)for q in{*Q}if 0<=q)+len(s)-len(Z)
-L,W,solution=len,zip,lambda s,v:(Z:=[*W(range(L(s)),*W(*{*W(s,v)}))])and(Q:=[(S-s)/(v-V)if(v-V)else-1for x,s,v in Z for X,S,V in Z if x>X])and max(Q.count(q)for q in{*Q}if 0<=q)+L(s)-L(Z)
+L,W,solution=len,zip,lambda s,v:(k:=((Z:=[*W(range(L(s)),*W(*{*W(s,v)}))])and(Q:=[(S-s)/(v-V)if(v-V)else-1for x,s,v in Z for X,S,V in Z if x>X]+[0])and max([Q.count(q)for q in{*Q}if 0<=q])+L(s)-L(Z)))*[-1,1][k>1]
 
 
 
 if __name__=='__main__':
     print(solution([1, 4, 2], [27, 18, 24]))
     print(solution([1, 4, 2, 2], [27, 18, 24, 24]))
+    print(solution([2, 2], [24, 24]))
+    print(solution([2, 3], [24, 24]))
+    print(solution([2, 2], [24, 25]))
