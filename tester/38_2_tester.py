@@ -4,7 +4,7 @@ import copy
 from tqdm import tqdm
 import json
 
-with open("38_2_tests_2k.json") as f:
+with open("38_2_tests_2.json") as f:
   data = json.load(f)
 
 failed_cases=[]
