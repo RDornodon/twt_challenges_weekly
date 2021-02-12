@@ -31,6 +31,7 @@ def solution(s,v):
     R=max([Q.count(q)for q in{*Q}if q>0]or[0])
     return [-1,int(.5+(1+8*R)**.5/2)][R>0]
 solution=lambda s,v:(Z:=[*zip(range(len(s)),s,v)])and(Q:=[(S-s)/(v-V)if(v-V)else-1for x,s,v in Z for X,S,V in Z if x>X])and[R:=int(.5+(1+8*max([Q.count(q)for q in{*Q}if q>0]or[0]))**.5/2),-R][R<2]
+solution=lambda s,v:(Z:=[*zip(range(len(s)),s,v)])and(Q:=[(t:=(S-s)/(v-V),s+t*v)for x,s,v in Z for X,S,V in Z if x>X and v-V]+[(0,0)])and[R:=int(.5+(1+8*max([Q.count(q)for q in{*Q}if q[0]>0]or[0]))**.5/2),-R][R<2]
 
 x = 0
 s = "\|/-"
@@ -47,19 +48,19 @@ if __name__=='__main__':
 
     print(solution([87, 67, 18, 83, 25, 78, 74, 72, 66], [9, 11, 13, 13, 6, 0, 18, 6, 10]))
 
-    create_tester = 0
+    create_tester = 1
     if create_tester:
         # create random cases
         import random
         import json
         cases = []
         while len(cases)<1000:
-            meetings = [-1,6,5,4,3,2,2,2,2,2][len(cases)%10]
+            meetings = [-1,5,4,3,2,2,2,2,2,2][len(cases)%10]
             counts = random.randint(max(meetings,2),max(meetings**2,10))
             starts = [*range(100)]
             speeds = [starts.pop(random.randint(0,len(starts)-1))for s in range(counts)]
             velocities = [random.randint(0,20)for v in range(counts)]
-            sol = solution(speeds, velocities)
+            sol = solution(speeds,velocities)
             if sol == meetings == -1 or 1 < meetings <= sol:
                 cases.append([speeds, velocities, sol])
             szejpojgo(len(cases))
