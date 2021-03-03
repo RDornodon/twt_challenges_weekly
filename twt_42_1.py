@@ -1,15 +1,15 @@
-def solution(t,I='n+-*0123456789abcdef',p=''):
- c=[];A,P=c.append,c.pop
- try:
-  for _ in t:
-   if _ in I:
-    if(i:=I.index(_))<1:p+=str(P())
-    elif i<2:A(P()+P())
-    elif i<3:A(-P()+P())
-    elif i<4:A(P()*P())
-    else: A(i-4)
- except:p='something smells fishy...'
- return p
+# def solution(t,I='n+-*0123456789abcdef',p=''):
+#  c=[];A,P=c.append,c.pop
+#  try:
+#   for _ in t:
+#    if _ in I:
+#     if(i:=I.index(_))<1:p+=str(P())
+#     elif i<2:A(P()+P())
+#     elif i<3:A(-P()+P())
+#     elif i<4:A(P()*P())
+#     else: A(i-4)
+#  except:p='something smells fishy...'
+#  return p
 
 def solution(t,I='+-*n0123456789abcdef',p=''):
  c=[];A,P=c.append,c.pop
