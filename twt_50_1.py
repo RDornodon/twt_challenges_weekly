@@ -13,7 +13,8 @@ def sorter(key: str):
 
 def solution(message: str, key: str):
     len_message, len_key = len(message), len(key)
-    return ''.join(sorted(message.ljust(-len_message // len_key * -len_key, ' '), key=sorter(key)))
+    message = message.ljust(-len_message // len_key * -len_key, ' ')
+    return ''.join(sorted(message, key=sorter(key)))
 
 
 S,L=sorted,len;X,solution=lambda k,K,c:lambda _:c.append(c[-1]+1)or[*map(S(k).index,k)][c[-2]%K]+c[-2]//K*K,lambda m,k:''.join(S(m.ljust(-L(m)//(K:=L(k))*-K,' '),key=X(k,K,[0])))

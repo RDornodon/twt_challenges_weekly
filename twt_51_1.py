@@ -1,0 +1,1 @@
+[print(''.join(sum(zip((t:=input().replace(*'aA').split('A'))[::2],map(str.swapcase,t[1::2]+[''])),tuple())))for _ in range(int(input()))]
